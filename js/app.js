@@ -25,7 +25,7 @@ const currentWeather = () =>{
         <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
         <h1>${data.name}</h1>
         <h3><span>${data.main.temp}</span>&deg;C</h3>
-        <h1 class="lead">Clouds</h1>
+        <h1 class="lead">${data.weather[0].main}</h1>
         `;
         weather.appendChild(div)
     })
@@ -33,7 +33,7 @@ const currentWeather = () =>{
     .catch(err => {
         const weather = document.getElementById('weather');
         const p = document.createElement('p');
-        p.innerText = 'Please search for a valid city!';
+        p.innerText = 'City not found!';
         p.style.color = 'red';
         weather.appendChild(p)
     })
